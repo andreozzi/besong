@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #FF4500;
+    color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header select {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+#musician-list {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #6A0DAD;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 300px;
+    max-height: 500px;
+    margin: 30px auto;
+    color: #f4f4f4;
+}
+
+li h2 {
+    margin-top: 0;
+}
+
+li p {
+    margin: 5px 0;
+}
+
+li img {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 300px;
+    height: auto;
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+li a:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}

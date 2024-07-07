@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script src="scripts/scriptContratante.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Cadastro de Contratante</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/img/undraw_compose_music_re_wpiw (5).svg">
+        </div>
+        <div class="cadastroMusicoForm">
+            <form id="musicoForm" enctype="multipart/form-data">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Contratante</h1>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="contratanteNome">Nome</label>
+                        <input id="contratanteNome" type="text" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="usuario">Usuário</label>
+                        <input id="usuario" type="text" name="Usuário" placeholder="Usuário" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="contratanteTelefone">Telefone</label>
+                        <input id="contratanteTelefone" type="text" name="name" placeholder="Digite seu Número: +55(61)99988-8899" required>
+                    </div>
+                    <div class="input-box">
+                <label for="contratanteEmail">E-mail</label>
+                <input id="contratanteEmail" type="email" name="email" placeholder="E-mail para contato" required>
+                </div>
+                    <div class="input-box">
+                        <label for="contratanteRegiao">Região</label>
+                        <input id="contratanteRegiao" type="text" name="regiao" placeholder="Região que reside" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input id="senha" type="password" name="senha" placeholder="Senha" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="confirmeSenha">Confirme sua senha</label>
+                        <input id="confirmeSenha" type="password" name="confirmeSenha" placeholder="Confirme sua senha" required>
+                    </div>
+                    <div class="input-box">
+                        <button type="submit">Cadastrar-se</button>
+                        <button onclick="window.location.href = 'opcaoCadastro.html';">Voltar</button>
+                    </div>
+                </div>
+            </form>     
+        </div>
+    </div>
+</body>
+</html>

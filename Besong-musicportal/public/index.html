@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeSong - Home</title>
+    <link rel="stylesheet" href="style_index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BeSong</h1>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                ☰
+            </button>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="opcaoCadastro.html">Cadastre-se</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p>BeSong</p>
+                <h2>Encontre o seu músico favorito</h2>
+            </div>
+            <div class="hero-image">
+                <img src="img/tela-inicial.png" alt="Músicos">
+            </div>
+        </section>
+        <section class="content">
+            <div class="content-item">
+                <h3>O melhor da música aqui!</h3>
+                <p>Se posicione mostrando a sua arte e alcance os principais bares e restaurantes da sua região.</p>
+            </div>
+            <div class="content-item">
+                <h3>Contato direto com artistas exclusivos</h3>
+                <p>Um espaço aberto para o novo, encontre aqui novos talentos de acordo com um estilo musical novo sempre que desejar.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
