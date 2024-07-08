@@ -49,23 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 estiloMusical: selectedValue
             };
 
-            fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                
-                handleResponse(data);
-
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Handle errors gracefully
-            });
+        
 
 
             fetch(apiUrls, {
