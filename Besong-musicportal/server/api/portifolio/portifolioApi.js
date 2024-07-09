@@ -36,38 +36,20 @@ app.get('/api/portifolio/:idArtista', (req, res) => {
     pool.query(sql, [idArtista], (err, result) => {
       if (err) {
         console.error('Erro ao executar a query: ' + err.stack);
-        res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
         res.status(500).json({ error: 'Erro interno ao consultar o banco de dados' });
         return;
       }
 
       // Verificar se encontrou algum artista com o userId fornecido
       if (result.length === 0) {
-        res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
         res.status(404).json({ error: 'Artista não encontrado' });
         return;
       }
 
       // Retorna os dados encontrados no banco de dados
-      res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
       res.json(result[0]);
     });
 });
-// Caminho para os arquivos SSL
-const sslPath = path.join(__dirname, '..', 'https');
-const keyPath = path.join(sslPath, 'key.pem');
-const certPath = path.join(sslPath, 'cert.pem');
-
-const httpsOptions = {
-    key: fs.readFileSync(keyPath),
-    cert: fs.readFileSync(certPath)
- };
-
-const httpsServer = https.createServer(httpsOptions, app);
-
-httpsServer.listen(3448, () => {
-    console.log('Servidor HTTPS rodando na porta 3448');
-})
 
 // Iniciar o servidor na porta 81
 const PORT = process.env.PORT || 88;
