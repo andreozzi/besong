@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
 
-            fetch(apiUrls, {
+            fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
