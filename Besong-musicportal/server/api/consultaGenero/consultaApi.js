@@ -47,7 +47,7 @@ app.post('/api/musicosList', (req, res) => {
   const values = [generoMusical];
 
   // Executar a query usando pool.query do mysql2
-  pool.query(sql, values, (err, result) => {
+  pool.query(sql, values, async (err, result) => {
     if (err) {
       console.error('Erro ao executar a query: ' + err.stack);
       res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
@@ -70,7 +70,21 @@ app.post('/api/musicosList', (req, res) => {
   });
 });
 
+// Caminho para os arquivos SSL
+const sslPath = path.join(__dirname, '..', 'https');
+const keyPath = path.join(sslPath, 'key.pem');
+const certPath = path.join(sslPath, 'cert.pem');
 
+const httpsOptions = {
+    key: fs.readFileSync(keyPath),
+    cert: fs.readFileSync(certPath)
+ };
+
+const httpsServer = https.createServer(httpsOptions, app);
+
+httpsServer.listen(3443, () => {
+    console.log('Servidor HTTPS rodando na porta 3443');
+  });
 // Iniciar o servidor na porta 81
 const PORT = process.env.PORT || 81;
 app.listen(PORT, () => {
