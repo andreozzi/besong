@@ -1,6 +1,10 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+const axios = require('axios');
 
 const app = express();
 
@@ -10,7 +14,7 @@ app.use(cors());
 // Configuração do banco de dados usando createPool do mysql2
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: "54.226.24.115",    // Host do seu banco de dados MySQL
+  host: "34.224.8.247",    // Host do seu banco de dados MySQL
   port: 3306,                // Porta do seu banco de dados MySQL
   user: "root",              // Usuário do seu banco de dados MySQL
   password: "1234",          // Senha do seu banco de dados MySQL
@@ -20,6 +24,9 @@ const pool = mysql.createPool({
 
 // Middleware para parse de JSON
 app.use(express.json());
+
+
+const vercelProtectionBypassSecret = 'gjAq5Q0OZrih26g7qHiio5lu4y8gCzqT';
 
 // Rota para receber dados do formulário e consultar no banco de dados
 app.post('/api/musicosList', (req, res) => {
@@ -43,18 +50,26 @@ app.post('/api/musicosList', (req, res) => {
   pool.query(sql, values, (err, result) => {
     if (err) {
       console.error('Erro ao executar a query: ' + err.stack);
+      res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
       res.status(500).json({ error: 'Erro interno ao consultar o banco de dados' });
       return;
     }
 
+    if(result.length===0){
+        console.log("nenhum usuario do estilo musical selecionado cadastrado");
+        res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
+        res.json({error: 'Nenhum usuario desse genero cadastrado'});
+    }
     // Log do resultado da consulta
     console.log('Consulta executada com sucesso');
     console.log(result); // Aqui logamos o resultado da consulta
 
     // Retorna os dados encontrados no banco de dados
+    res.setHeader('x-vercel-protection-bypass', vercelProtectionBypassSecret);
     res.json(result);
   });
 });
+
 
 // Iniciar o servidor na porta 81
 const PORT = process.env.PORT || 81;
